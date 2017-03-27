@@ -18,6 +18,22 @@
   font-size: large;
 }
 
+button {
+  position: relative;
+  width: 8em;
+  height: 8em;
+  font-size: 1.5em;
+  border-radius: 1em;
+  border-color: gray;
+  border-style: solid;
+  background-color: #323E56;
+  color: white;
+}
+
+button:hover {
+  background-color: #333A49;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
