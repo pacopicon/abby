@@ -20,18 +20,25 @@
 
 button {
   position: relative;
-  width: 8em;
-  height: 8em;
+  width: 3em;
+  height: 3em;
   font-size: 1.5em;
-  border-radius: 1em;
+  border-radius: 0.5em;
   border-color: gray;
   border-style: solid;
   background-color: #323E56;
   color: white;
+  margin: 0;
+  padding: 0;
 }
 
 button:hover {
   background-color: #333A49;
+}
+
+button:active {
+  margin: 0;
+  padding: 0;
 }
 
 @keyframes App-logo-spin {
