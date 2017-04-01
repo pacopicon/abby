@@ -18,7 +18,11 @@
   font-size: large;
 }
 
-button {
+.board-row {
+  position: relative;
+}
+
+.square {
   position: relative;
   width: 3em;
   height: 3em;
