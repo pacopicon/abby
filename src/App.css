@@ -18,12 +18,38 @@
   font-size: large;
 }
 
+.game {
+  margin-left: 1em;
+}
+
+.hide {
+  background-color: gray;
+  width: 6em;
+  height: 3em;
+  margin-bottom: 1em;
+  margin-left: 1.2em;
+}
+
+.hide:hover {
+  background-color: pink;
+}
+
+.hide:active {
+  background-color: pink;
+}
+
+.hide p {
+  color: white;
+  bottom: 1em;
+}
+
 .board-row {
   position: relative;
 }
 
 .square {
   position: relative;
+  margin-left: 1em;
   width: 3em;
   height: 3em;
   font-size: 1.5em;

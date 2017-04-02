@@ -59,20 +59,33 @@ class Game extends React.Component {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
+    const show_hide = {display: 'block'};
+
+    function toggleHide() {
+      if (show_hide == {display: 'block'}) {
+        const show_hide = {display: 'none'};
+      } else {
+        const show_hide = {display: 'block'};
+      }
+      console.log("show_hide: " + show_hide.display);
+      return show_hide;
+    };
+
     return (
-      <div className="game">
-
-        <div className="game-board">
-          <Board
-            squares={current.squares}
-            onClick={(i) => this.handleClick(i)}
-          />
+      <div>
+        <button className="hide" onClick={toggleHide}><p>hide</p></button>
+        <div style={show_hide} className="game">
+          <div className="game-board">
+            <Board
+              squares={current.squares}
+              onClick={(i) => this.handleClick(i)}
+            />
+          </div>
+          <div className="game-info">
+            <div>{status}</div>
+            <ol>{moves}</ol>
+          </div>
         </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
-        </div>
-
       </div>
     );
   }
