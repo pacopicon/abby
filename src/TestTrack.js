@@ -5,7 +5,7 @@ import './App.css';
 class TestTrack extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {students: [], name: '', extendTime: 0, test: ''};
+    this.state = {students: [], name: '', extendTime: 0, testName: ''};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,9 +17,13 @@ class TestTrack extends React.Component {
         <h3>Testing Room:</h3>
         <Classroom students={this.state.students} />
         <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange} value={this.state.name} />
-          <input onChange={this.handleChange} value={this.state.extendTime} />
-          <input onChange={this.handleChange} value={this.state.test} />
+          <input type="text" onChange={this.handleChange} value={this.state.name} />
+          <select type="number" value={this.state.extendTime} onChange={this.handleChange}>
+            <option value={1.5}>1.5x</option>
+            <option value={2}>2x</option>
+            <option value={2.5}>2.5x</option>
+            <option value={3}>3x</option>
+          </select>
           <button>{'Add student #' + (this.state.students.length + 1)}</button>
         </form>
       </div>
@@ -27,14 +31,19 @@ class TestTrack extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({name: e.target.value});
+    const value = e.target.type === "text" ? this.state.name : this.state.extendTime;
+    this.setState({
+      value: e.target.value
+    });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     var newStudent = {
       name: this.state.name,
-      id: Date.now()
+      id: Date.now(),
+      extendTime: this.extendTime,
+      testName: this.testName
     };
     this.setState((prevState) => ({
       students: prevState.students.concat(newStudent),
@@ -48,7 +57,7 @@ class Classroom extends React.Component {
     return(
       <ul>
         {this.props.students.map(student => (
-          <li key={student.id}>{student.name}: {student.id}</li>
+          <li key={student.id}>{student.name}: </li>
         ))}
       </ul>
     );
